@@ -1,8 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Arthur Ramos, Wallace Casaca, Breno Bernal
-São Paulo State University (UNESP), Institute of Biosciences, Humanities and Exact
-Sciences (IBILCE), São José do Rio Preto, SP, Brazil
+Copyright (c) 2026 Arthur Ramos, Breno Bernal, Wallace Casaca
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Scope
-
-The MIT licence above covers the source code, analysis scripts and tests in this
-repository.
-
-The derived research records produced by this project, i.e. the files under
-evidence/, splits/ and results/, are licensed under the Creative Commons
-Attribution 4.0 International licence (CC BY 4.0):
-https://creativecommons.org/licenses/by/4.0/
-
-The manuscript sources in paper/, when present, and the Springer Nature template
-files are not covered by either licence.
-
-The derived records contain image file names, patient identifiers and labels
-taken from two third-party collections. The images themselves are not
-redistributed here, and both collections remain under their own terms:
-
-  * NJN (Abdulrazzak et al., 2023), CC BY 4.0
-      https://zenodo.org/records/7825810
-  * NeoJaundice (Wang et al., 2023), CC0 1.0
-      https://springernature.figshare.com/articles/dataset/
-      NeoJaundice_Neonatal_Jaundice_Evaluation_in_Demographic_Images/22302559
-
-Reuse of the derived records must also honour those terms, including the
-attribution required by the NJN licence and the usage notes of the NeoJaundice
-release, which state that the data are not intended for the development of
-diagnosis-oriented algorithms and models.

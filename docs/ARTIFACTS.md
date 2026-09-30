@@ -59,7 +59,7 @@ Source images are obtained separately from the [NJN release](https://zenodo.org/
 split manifests retain source image/group identifiers and labels; they are not
 represented as anonymized data, and image paths are stored relative to the dataset
 root. The project's derived records in `evidence/`, `splits/` and `results/` are
-released under CC BY 4.0 and code under the MIT licence, as specified in `LICENSE`;
+released under CC BY 4.0 and code under the MIT licence, as specified in `LICENSE` and `LICENSE-DATA`;
 neither applies to the Springer template files or to third-party images. Reuse must
 also honour the source releases' terms, including the NJN attribution requirement and
 the NeoJaundice usage notes.

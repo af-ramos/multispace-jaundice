@@ -2,6 +2,7 @@
 /*
 !/.gitignore
 !/LICENSE
+!/LICENSE-DATA
 !/README.md
 !/requirements.txt
 !/requirements-train.lock

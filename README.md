@@ -73,4 +73,5 @@ Source datasets remain under their own terms and are acquired separately:
 [NeoJaundice](https://springernature.figshare.com/articles/dataset/NeoJaundice_Neonatal_Jaundice_Evaluation_in_Demographic_Images/22302559)
 (CC0 1.0; its usage notes state that the data are not intended for developing
 diagnosis-oriented models). Code is released under the MIT licence and the derived
-records in `evidence/`, `splits/` and `results/` under CC BY 4.0; see [LICENSE](LICENSE).
+records in `evidence/`, `splits/` and `results/` under CC BY 4.0; see [LICENSE](LICENSE) and
+[LICENSE-DATA](LICENSE-DATA).
