@@ -87,10 +87,10 @@ def interval(values, digits=2, signed=False):
     return "[" + ", ".join(fmt(v, digits, signed) for v in values) + "]"
 
 
-def table(caption, label, spec, header, rows):
+def table(caption, label, spec, header, rows, colsep="4pt"):
     return "\n".join([r"\begin{table*}[htbp]", r"\centering",
                       r"\caption{" + caption + "}", r"\label{" + label + "}",
-                      r"\footnotesize", r"\setlength{\tabcolsep}{4pt}",
+                      r"\footnotesize", r"\setlength{\tabcolsep}{" + colsep + "}",
                       r"\begin{tabular}{" + spec + "}", r"\toprule", header,
                       r"\midrule", *rows, r"\bottomrule", r"\end{tabular}", r"\end{table*}"])
 
@@ -119,32 +119,62 @@ def build_bundle():
         result["backbone"], result["colorset"] = bb, selected[2]
         clinical[ds] = result
         unit = "patient" if ds == "NeoJaundice" else "image"
-        featured_rows.append(r"\multicolumn{7}{@{}l}{\textit{" + ds + "} --- " + unit +
-                             r" level ($N=" + str(expected[0]) + r"$)}" + ROW_END)
+        positives = int(np.sum(a["true"]))
+        if featured_rows:
+            featured_rows.append(r"\addlinespace[3pt]")
+        featured_rows.append(r"\multicolumn{8}{@{}l}{\textit{" + ds + "} --- " + unit + r" level ($N=" +
+                             str(expected[0]) + r"$, " + str(positives) + r" positive)}" + ROW_END)
+        # Linha da estimativa e, logo abaixo, a do IC 95% em corpo menor, para todas as métricas.
+        digits = {"Accuracy": 2, "Macro-F1": 3, "Sensitivity": 1, "Specificity": 1, "AUC-ROC": 3}
+        order = ("Accuracy", "Sensitivity", "Specificity", "Macro-F1", "AUC-ROC")
+        rows = {r["metric"]: r for r in result["rows"]}
+        def sfmt(x, d, signed):
+            # Um limite que arredonda para zero sai sem sinal ("0.0", não "+0.0").
+            return fmt(0.0, d) if signed and round(x, d) == 0 else fmt(x, d, signed)
+        def ci_row(key, delta=False):
+            cells = []
+            for m in order:
+                d = 4 if (delta and m == "AUC-ROC") else digits[m]
+                lo, hi = rows[m][key]
+                # 6 pt explícitos: nesta classe \scriptsize (9 pt) é maior do que o corpo da tabela (7 pt).
+                cells.append(r"{\fontsize{6}{7}\selectfont [" + sfmt(lo, d, delta) + ", " + sfmt(hi, d, delta) + "]}")
+            return "   & & " + " & ".join(cells[:3]) + " & & " + " & ".join(cells[3:]) + ROW_END
+        fns = {}
         for kind, cs, arm in (("rgb", "RGB", a), ("multi", selected[2], b)):
             s = score(arm, .5)
-            def clinical_cell(metric, row_index):
-                return (r"\shortstack{" + fmt(s[metric], 1) + r"\\{\scriptsize " +
-                        interval(result["rows"][row_index][kind + "_ci"], 1) + "}}")
-            values = [PRETTY[bb] + ", " + short(cs), fmt(s["accuracy"]),
-                      interval(result["rows"][0][kind + "_ci"]), fmt(s["f1_macro"], 4),
-                      clinical_cell("sensitivity", 2), clinical_cell("specificity", 3), fmt(s["auc_roc"], 3)]
+            fns[kind] = s["fn"]
+            values = [PRETTY[bb], short(cs), fmt(s["accuracy"]), fmt(s["sensitivity"], 1),
+                      fmt(s["specificity"], 1), str(s["fn"]), fmt(s["f1_macro"], 3), fmt(s["auc_roc"], 3)]
             featured_rows.append("  " + " & ".join(values) + ROW_END)
+            featured_rows.append(ci_row(kind + "_ci"))
+        delta = [r"\multicolumn{2}{@{}l}{\quad Difference}"]
+        for m in order[:3]:
+            delta.append(fmt(rows[m]["delta"], digits[m], signed=True))
+        delta.append(f"{fns['multi'] - fns['rgb']:+d}")
+        delta.append(fmt(rows["Macro-F1"]["delta"], 3, signed=True))
+        delta.append(fmt(rows["AUC-ROC"]["delta"], 4, signed=True))
+        featured_rows.append("  " + " & ".join(delta) + ROW_END)
+        featured_rows.append(ci_row("delta_ci", delta=True))
         if ds == "NeoJaundice":
-            featured_rows.append(r"\multicolumn{7}{@{}l}{\textit{NeoJaundice} --- image level (447 images from 149 infants)}" + ROW_END)
+            img_pos = int(np.sum(a["img_true"]))
+            featured_rows.append(r"\addlinespace[3pt]")
+            featured_rows.append(r"\multicolumn{8}{@{}l}{\textit{NeoJaundice} --- image level (447 images from 149 infants, " +
+                                 str(img_pos) + r" positive; no intervals)}" + ROW_END)
             for cs, arm in (("RGB", a), (selected[2], b)):
                 s = score(dict(arm, prob=arm["img_prob"], true=arm["img_true"]), .5)
-                featured_rows.append("  " + " & ".join([PRETTY[bb] + ", " + short(cs), fmt(s["accuracy"]),
-                                     "---", fmt(s["f1_macro"], 4), fmt(s["sensitivity"], 1),
-                                     fmt(s["specificity"], 1), fmt(s["auc_roc"], 3)]) + ROW_END)
+                featured_rows.append("  " + " & ".join([PRETTY[bb], short(cs), fmt(s["accuracy"]),
+                                     fmt(s["sensitivity"], 1), fmt(s["specificity"], 1), str(s["fn"]),
+                                     fmt(s["f1_macro"], 3), fmt(s["auc_roc"], 3)]) + ROW_END)
+            featured_rows.append(r"\addlinespace[2pt]")
+            featured_rows.append(r"\multicolumn{8}{@{}l}{\textit{Published benchmark}~\cite{SkinDataset:2023} --- image level, different partition}" + ROW_END)
             for name, acc, auc in (("EfficientNet-B4", "75.2", "0.829"), ("DenseNet-121", "74.2", "0.814"), ("Swin-base", "71.6", "0.794")):
-                featured_rows.append(r"  \citet{SkinDataset:2023}, " + name + " & " + acc + " & --- & --- & --- & --- & " + auc + ROW_END)
+                featured_rows.append("  " + name + " & n.r. & " + acc + " & n.r. & n.r. & n.r. & n.r. & " + auc + ROW_END)
 
     blocks = {}
     blocks["H2_melhores_sistemas"] = table(
-        r"Illustrative systems in \textbf{Register A}: five-seed ensembles at threshold $0.5$. Chromatic arms maximise ensemble validation AUC within the available subset (Section~\ref{sec:best_systems}), not the complete factorial. Brackets give 95\% cluster-bootstrap percentile confidence intervals (CI; 10,000 draws, the same groups resampled for both arms) for accuracy, sensitivity and specificity; paired differences between arms are reported in the text. Image-level NeoJaundice rows provide descriptive context for the published benchmark. L, Y and H denote LAB, YCrCb and HSV.",
-        "tab:featured_systems", "@{}l r c c r r c@{}",
-        r"\textbf{System} & \textbf{Acc. (\%)} & \textbf{95\% CI} & \textbf{Macro-F1} & \textbf{Sens. (\%)} & \textbf{Spec. (\%)} & \textbf{AUC}" + ROW_END,
+        r"Illustrative systems in \textbf{Register A}: five-seed ensembles at threshold $0.5$. Chromatic arms maximise ensemble validation AUC within the available subset (Section~\ref{sec:best_systems}), not the complete factorial. Below each estimate, in small type, is its 95\% cluster-bootstrap percentile confidence interval (10,000 draws, the same groups resampled for both arms); \emph{Difference} rows give the paired difference, multi-space minus RGB, with its paired interval. FN, false negatives. Image-level NeoJaundice rows, without intervals, provide descriptive context for the published benchmark; n.r., not reported. L, Y and H denote LAB, YCrCb and HSV.",
+        "tab:featured_systems", "@{}l l r r r r r r@{}",
+        r"\textbf{Backbone} & \textbf{Colour set} & \textbf{Acc. (\%)} & \textbf{Sens. (\%)} & \textbf{Spec. (\%)} & \textbf{FN} & \textbf{Macro-F1} & \textbf{AUC}" + ROW_END,
         featured_rows)
     panel_rows = []
     for ds in DATASETS:
