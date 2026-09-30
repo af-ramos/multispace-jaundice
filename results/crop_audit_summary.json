@@ -1,0 +1,22 @@
+{
+  "sample": {
+    "n": 120,
+    "seed": 20260913,
+    "above_pct": {
+      "0.5": 48,
+      "1": 39,
+      "3": 27,
+      "5": 14,
+      "10": 5,
+      "25": 0,
+      "50": 0
+    },
+    "max_pct": 20.1
+  },
+  "collection": {
+    "n": 2235,
+    "share_above_1pct": 0.2904,
+    "share_above_5pct": 0.1145,
+    "auc_card_fraction_vs_label": 0.5075
+  }
+}

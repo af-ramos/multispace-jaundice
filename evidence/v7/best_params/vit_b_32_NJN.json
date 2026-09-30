@@ -1,0 +1,22 @@
+{
+  "backbone": "vit_b_32",
+  "dataset": "NJN",
+  "colorset": "RGB",
+  "objective": "roc_auc",
+  "hpo_fold": 0,
+  "search_epochs": 50,
+  "n_trials": 20,
+  "best_value": 0.9401785714285715,
+  "best_params": {
+    "lr": 0.01187927813642123,
+    "optimizer": "adam",
+    "activation": "none",
+    "n_unfreeze": 50,
+    "fusion": "adapter_v2",
+    "augment": true,
+    "da_strength": 0.9628733134731046,
+    "batch_size": 32
+  },
+  "code_version": "",
+  "timestamp": "2026-07-07 10:38:29"
+}

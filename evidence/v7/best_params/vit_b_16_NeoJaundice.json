@@ -1,0 +1,22 @@
+{
+  "backbone": "vit_b_16",
+  "dataset": "NeoJaundice",
+  "colorset": "RGB",
+  "objective": "roc_auc",
+  "hpo_fold": 0,
+  "search_epochs": 50,
+  "n_trials": 20,
+  "best_value": 0.8406815245478035,
+  "best_params": {
+    "lr": 0.0002920433847181409,
+    "optimizer": "adamax",
+    "activation": "none",
+    "n_unfreeze": -1,
+    "fusion": "adapter_v2",
+    "augment": true,
+    "da_strength": 0.41936688658110405,
+    "batch_size": 32
+  },
+  "code_version": "",
+  "timestamp": "2026-07-07 11:11:22"
+}

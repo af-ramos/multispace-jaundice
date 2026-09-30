@@ -1,0 +1,22 @@
+{
+  "backbone": "deit_tiny",
+  "dataset": "NeoJaundice",
+  "colorset": "RGB",
+  "objective": "roc_auc",
+  "hpo_fold": 0,
+  "search_epochs": 50,
+  "n_trials": 20,
+  "best_value": 0.9069859333017227,
+  "best_params": {
+    "lr": 0.02231888628318222,
+    "optimizer": "adam",
+    "activation": "none",
+    "n_unfreeze": 100,
+    "fusion": "adapter_v2",
+    "augment": false,
+    "da_strength": 0.0,
+    "batch_size": 32
+  },
+  "code_version": "",
+  "timestamp": "2026-07-05 19:52:07"
+}

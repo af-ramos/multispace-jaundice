@@ -1,0 +1,2 @@
+# Install in the training environment, not the CPU analysis environment.
+pytest==9.1.1

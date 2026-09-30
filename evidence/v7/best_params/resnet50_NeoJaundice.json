@@ -1,0 +1,22 @@
+{
+  "backbone": "resnet50",
+  "dataset": "NeoJaundice",
+  "colorset": "RGB",
+  "objective": "roc_auc",
+  "hpo_fold": 0,
+  "search_epochs": 50,
+  "n_trials": 20,
+  "best_value": 0.8364825581395349,
+  "best_params": {
+    "lr": 0.00014044748172629902,
+    "optimizer": "adamax",
+    "activation": "none",
+    "n_unfreeze": -1,
+    "fusion": "adapter_v2",
+    "augment": false,
+    "da_strength": 0.0,
+    "batch_size": 32
+  },
+  "code_version": "",
+  "timestamp": "2026-07-07 09:34:36"
+}

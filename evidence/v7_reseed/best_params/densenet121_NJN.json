@@ -1,0 +1,22 @@
+{
+  "backbone": "densenet121",
+  "dataset": "NJN",
+  "colorset": "RGB",
+  "objective": "roc_auc",
+  "hpo_fold": 0,
+  "search_epochs": 50,
+  "n_trials": 20,
+  "best_value": 0.94375,
+  "best_params": {
+    "lr": 0.021300869528068523,
+    "optimizer": "adamax",
+    "activation": "none",
+    "n_unfreeze": 50,
+    "fusion": "adapter_v2",
+    "augment": true,
+    "da_strength": 0.6749732114700543,
+    "batch_size": 32
+  },
+  "code_version": "",
+  "timestamp": "2026-08-18 21:25:35"
+}

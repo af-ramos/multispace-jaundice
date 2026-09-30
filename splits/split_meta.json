@@ -1,0 +1,58 @@
+{
+  "split_seed": 42,
+  "grouping": {
+    "NJN": "pseudo-patient, pHash <= 5",
+    "NeoJaundice": "patient_id from the dataset"
+  },
+  "datasets": {
+    "NJN": {
+      "rows": 760,
+      "coverage": "complete: all 760 images",
+      "sha256": "d0c851d469db596265f4dd3e25d0f80d1ba063f036338d1d34a60150f3f538ed",
+      "splits": {
+        "test": {
+          "images": 152,
+          "patients": 151,
+          "prevalence_pct": 26.32
+        },
+        "train": {
+          "images": 532,
+          "patients": 529,
+          "prevalence_pct": 26.32
+        },
+        "val": {
+          "images": 76,
+          "patients": 75,
+          "prevalence_pct": 26.32
+        }
+      },
+      "patient_overlap": {
+        "test|train": 0,
+        "test|val": 0,
+        "train|val": 0
+      },
+      "dumps_cross_checked": 8
+    },
+    "NeoJaundice": {
+      "rows": 672,
+      "coverage": "validation and test only; train is the complement over the 745 public patients",
+      "sha256": "a8fa9420dbe257184a33ef6980764af68df7cf2db50f159ab3a4ab0ed5b9fcda",
+      "splits": {
+        "test": {
+          "images": 447,
+          "patients": 149,
+          "prevalence_pct": 42.28
+        },
+        "val": {
+          "images": 225,
+          "patients": 75,
+          "prevalence_pct": 42.67
+        }
+      },
+      "patient_overlap": {
+        "test|val": 0
+      },
+      "dumps_cross_checked": 8
+    }
+  }
+}

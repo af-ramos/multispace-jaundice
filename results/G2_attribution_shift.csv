@@ -1,0 +1,7 @@
+dataset;backbone;colorset;family;n_images;grid;n_degenerate;r_between;r_within_rgb;r_within_multi;gap;frac_below
+NJN;mobilenetv3_large;RGB+LAB+HSV;cnn;152;8x8;1;0.3625;0.3081;0.3817;-0.0566;0.2450
+NeoJaundice;vit_l_16;RGB+LAB+YCrCb+HSV;vit;447;14x14;0;0.9968;0.9980;0.9957;0.0013;0.9553
+NJN;densenet121;RGB+YCrCb+HSV;cnn;152;8x8;2;0.5277;0.5640;0.4977;0.0367;0.6000
+NJN;dinov3_vits16;RGB+YCrCb+HSV;vit;152;14x14;0;0.8900;0.8950;0.9003;0.0050;0.4934
+NeoJaundice;deit_base;RGB+LAB+YCrCb+HSV;vit;447;14x14;0;0.9932;0.9957;0.9917;0.0025;0.9575
+NeoJaundice;deit_small;RGB+LAB+YCrCb+HSV;vit;447;14x14;0;0.9894;0.9961;0.9875;0.0067;1.0000

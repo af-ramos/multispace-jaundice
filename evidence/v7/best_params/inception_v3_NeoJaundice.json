@@ -1,0 +1,22 @@
+{
+  "backbone": "inception_v3",
+  "dataset": "NeoJaundice",
+  "colorset": "RGB",
+  "objective": "roc_auc",
+  "hpo_fold": 0,
+  "search_epochs": 50,
+  "n_trials": 20,
+  "best_value": 0.8231589147286822,
+  "best_params": {
+    "lr": 6.798051488010502e-05,
+    "optimizer": "adam",
+    "activation": "none",
+    "n_unfreeze": -1,
+    "fusion": "adapter_v2",
+    "augment": true,
+    "da_strength": 0.3011581025483241,
+    "batch_size": 32
+  },
+  "code_version": "",
+  "timestamp": "2026-07-07 09:56:17"
+}

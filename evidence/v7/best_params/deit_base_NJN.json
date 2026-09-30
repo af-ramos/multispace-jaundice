@@ -1,0 +1,22 @@
+{
+  "backbone": "deit_base",
+  "dataset": "NJN",
+  "colorset": "RGB",
+  "objective": "roc_auc",
+  "hpo_fold": 0,
+  "search_epochs": 50,
+  "n_trials": 20,
+  "best_value": 0.9508928571428571,
+  "best_params": {
+    "lr": 0.0012329098365270509,
+    "optimizer": "adam",
+    "activation": "none",
+    "n_unfreeze": 50,
+    "fusion": "adapter_v2",
+    "augment": false,
+    "da_strength": 0.0,
+    "batch_size": 32
+  },
+  "code_version": "",
+  "timestamp": "2026-07-07 10:19:53"
+}

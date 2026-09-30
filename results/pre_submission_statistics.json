@@ -1,0 +1,248 @@
+{
+  "clinical": {
+    "NJN": {
+      "n_units": 152,
+      "n_groups": 151,
+      "discarded_draws": 0,
+      "seed": 20260906,
+      "repetitions": 10000,
+      "rows": [
+        {
+          "metric": "Accuracy",
+          "rgb": 94.07894736842105,
+          "multi": 95.39473684210526,
+          "delta": 1.3157894736842053,
+          "rgb_ci": [
+            90.13157894736842,
+            97.38562091503267
+          ],
+          "multi_ci": [
+            92.05298013245033,
+            98.67549668874172
+          ],
+          "delta_ci": [
+            -1.3071895424836697,
+            3.973509933774835
+          ]
+        },
+        {
+          "metric": "Macro-F1",
+          "rgb": 0.921734653012186,
+          "multi": 0.9410950561922161,
+          "delta": 0.019360403180030072,
+          "rgb_ci": [
+            0.8660753880266076,
+            0.9662353395962188
+          ],
+          "multi_ci": [
+            0.8933013001695873,
+            0.9802091942148761
+          ],
+          "delta_ci": [
+            -0.01406042277853986,
+            0.057641499861157915
+          ]
+        },
+        {
+          "metric": "Sensitivity",
+          "rgb": 85.0,
+          "multi": 92.5,
+          "delta": 7.5,
+          "rgb_ci": [
+            72.97297297297297,
+            95.0
+          ],
+          "multi_ci": [
+            83.33333333333333,
+            100.0
+          ],
+          "delta_ci": [
+            0.0,
+            17.073170731707307
+          ]
+        },
+        {
+          "metric": "Specificity",
+          "rgb": 97.32142857142857,
+          "multi": 96.42857142857143,
+          "delta": -0.8928571428571388,
+          "rgb_ci": [
+            94.01709401709402,
+            100.0
+          ],
+          "multi_ci": [
+            92.72727272727273,
+            99.15254237288136
+          ],
+          "delta_ci": [
+            -2.830188679245282,
+            0.0
+          ]
+        },
+        {
+          "metric": "AUC-ROC",
+          "rgb": 0.9930803571428571,
+          "multi": 0.9928571428571429,
+          "delta": -0.00022321428571425717,
+          "rgb_ci": [
+            0.983167171389251,
+            0.9992122261640505
+          ],
+          "multi_ci": [
+            0.9826572539520653,
+            0.9988738738738738
+          ],
+          "delta_ci": [
+            -0.005000217770034845,
+            0.00411271508811561
+          ]
+        }
+      ],
+      "backbone": "mobilenetv3_large",
+      "colorset": "RGB+LAB+HSV"
+    },
+    "NeoJaundice": {
+      "n_units": 149,
+      "n_groups": 149,
+      "discarded_draws": 0,
+      "seed": 20260907,
+      "repetitions": 10000,
+      "rows": [
+        {
+          "metric": "Accuracy",
+          "rgb": 79.86577181208054,
+          "multi": 83.89261744966443,
+          "delta": 4.0268456375838895,
+          "rgb_ci": [
+            73.15436241610739,
+            85.90604026845638
+          ],
+          "multi_ci": [
+            77.85234899328859,
+            89.93288590604027
+          ],
+          "delta_ci": [
+            -2.0134228187919376,
+            10.06711409395973
+          ]
+        },
+        {
+          "metric": "Macro-F1",
+          "rgb": 0.7982123510292525,
+          "multi": 0.8334575260804769,
+          "delta": 0.035245175051224376,
+          "rgb_ci": [
+            0.7309498013723366,
+            0.8589587559161596
+          ],
+          "multi_ci": [
+            0.7694757917728432,
+            0.8915180196578085
+          ],
+          "delta_ci": [
+            -0.021845325077663062,
+            0.09297035316926615
+          ]
+        },
+        {
+          "metric": "Sensitivity",
+          "rgb": 88.88888888888889,
+          "multi": 77.77777777777777,
+          "delta": -11.111111111111114,
+          "rgb_ci": [
+            80.59701492537313,
+            96.07843137254902
+          ],
+          "multi_ci": [
+            67.1875,
+            87.5
+          ],
+          "delta_ci": [
+            -19.607843137254903,
+            -3.773584905660371
+          ]
+        },
+        {
+          "metric": "Specificity",
+          "rgb": 73.25581395348837,
+          "multi": 88.37209302325581,
+          "delta": 15.116279069767444,
+          "rgb_ci": [
+            63.529411764705884,
+            82.05128205128206
+          ],
+          "multi_ci": [
+            81.05263157894737,
+            94.6236559139785
+          ],
+          "delta_ci": [
+            8.045977011494259,
+            23.076923076923073
+          ]
+        },
+        {
+          "metric": "AUC-ROC",
+          "rgb": 0.8802141011443337,
+          "multi": 0.8870431893687708,
+          "delta": 0.006829088224437063,
+          "rgb_ci": [
+            0.8181129215611974,
+            0.9351876218323587
+          ],
+          "multi_ci": [
+            0.8258003766478342,
+            0.9395626936578871
+          ],
+          "delta_ci": [
+            -0.009465622736281725,
+            0.024278933917488036
+          ]
+        }
+      ],
+      "backbone": "vit_l_16",
+      "colorset": "RGB+LAB+YCrCb+HSV"
+    }
+  },
+  "selection": [
+    {
+      "dataset": "NJN",
+      "backbone": "mobilenetv3_large",
+      "colorset": "RGB+LAB+HSV",
+      "validation_auc": 0.9473214285714285,
+      "selected": true
+    },
+    {
+      "dataset": "NJN",
+      "backbone": "mobilenetv3_large",
+      "colorset": "RGB+YCrCb",
+      "validation_auc": 0.9321428571428572,
+      "selected": false
+    },
+    {
+      "dataset": "NeoJaundice",
+      "backbone": "vit_l_16",
+      "colorset": "RGB+LAB+HSV",
+      "validation_auc": 0.8968023255813954,
+      "selected": false
+    },
+    {
+      "dataset": "NeoJaundice",
+      "backbone": "vit_l_16",
+      "colorset": "RGB+LAB+YCrCb+HSV",
+      "validation_auc": 0.9164244186046512,
+      "selected": true
+    }
+  ],
+  "canonical_prediction_cells": 88,
+  "facts": {
+    "val_threshold": "on NJN the thresholds become $0.45$ (RGB) and $0.40$ (multi-space) and accuracy $95.39\\%$ against $96.05\\%$, with sensitivity $90.0\\%$ against $95.0\\%$; on NeoJaundice the RGB threshold stays at $0.50$ and the multi-space one becomes $0.45$, giving $79.87\\%$ against $81.88\\%$ accuracy and $88.9\\%$ against $81.0\\%$ sensitivity (12 false negatives)",
+    "auc_panels": "area under the receiver operating characteristic curve (AUC) ranged from $-0.0146$ to $+0.0167$",
+    "hpo_winners": "learning rates span $6.8 \\times 10^{-5}$ to $4.9 \\times 10^{-2}$; Adam was chosen in 18 and Adamax in 12; the backbone was fully unfrozen in 13, unfrozen over its last 50 tensors in 14, 100 in 2 and 10 in 1; augmentation was enabled in 16, with strengths from $0.30$ to $0.96$",
+    "seed_dispersion": "median standard deviation of the test AUC across the five seeds of a cell is $0.013$",
+    "fusion_parity": "maximum absolute difference of $2.1 \\times 10^{-3}$ (mean $2.7 \\times 10^{-4}$)",
+    "fusion_params": "between 59 ($K=1$) and 203 ($K=4$) trainable parameters",
+    "levers": "over the 44 cells per dataset with preserved test predictions, all read at threshold $0.5$, the five-seed ensemble adds $+1.84$ percentage points (p.p.) of accuracy on NJN and $+1.95$ on NeoJaundice to the per-seed image-level mean, and the patient unit a further $+5.05$ p.p.\\ on NeoJaundice",
+    "positives_njn": "532 / 529 (140) & 76 / 75 (20) & 152 / 151 (40)",
+    "positives_neo_valtest": "225 / 75 (96) & 447 / 149 (189)"
+  }
+}

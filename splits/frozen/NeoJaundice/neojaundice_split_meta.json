@@ -1,0 +1,42 @@
+﻿{
+  "dataset": "NeoJaundice",
+  "split_seed": 42,
+  "procedimento": "patient_group_split (StratifiedGroupKFold ~70/10/20, agrupado por paciente)",
+  "num_classes_estratificacao": 2,
+  "phash_dist": null,
+  "n_total_imagens": 2235,
+  "n_total_pacientes": 745,
+  "classes": [
+    "healthy",
+    "jaundice"
+  ],
+  "train": {
+    "imagens": 1563,
+    "pacientes": 521,
+    "por_classe": {
+      "healthy": 900,
+      "jaundice": 663
+    }
+  },
+  "val": {
+    "imagens": 225,
+    "pacientes": 75,
+    "por_classe": {
+      "jaundice": 96,
+      "healthy": 129
+    }
+  },
+  "test": {
+    "imagens": 447,
+    "pacientes": 149,
+    "por_classe": {
+      "healthy": 258,
+      "jaundice": 189
+    }
+  },
+  "sklearn_version": "1.9.0",
+  "python_version": "3.12.3",
+  "git_commit": "a0c43c9",
+  "gerado_em": "2026-07-06 10:18:42",
+  "csv": "neojaundice_split.csv"
+}

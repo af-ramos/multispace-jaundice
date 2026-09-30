@@ -1,0 +1,42 @@
+﻿{
+  "dataset": "NJN",
+  "split_seed": 42,
+  "procedimento": "patient_group_split (StratifiedGroupKFold ~70/10/20, agrupado por paciente)",
+  "num_classes_estratificacao": 2,
+  "phash_dist": 5,
+  "n_total_imagens": 760,
+  "n_total_pacientes": 755,
+  "classes": [
+    "healthy",
+    "jaundice"
+  ],
+  "train": {
+    "imagens": 532,
+    "pacientes": 529,
+    "por_classe": {
+      "jaundice": 140,
+      "healthy": 392
+    }
+  },
+  "val": {
+    "imagens": 76,
+    "pacientes": 75,
+    "por_classe": {
+      "jaundice": 20,
+      "healthy": 56
+    }
+  },
+  "test": {
+    "imagens": 152,
+    "pacientes": 151,
+    "por_classe": {
+      "jaundice": 40,
+      "healthy": 112
+    }
+  },
+  "sklearn_version": "1.9.0",
+  "python_version": "3.12.3",
+  "git_commit": "a0c43c9",
+  "gerado_em": "2026-07-06 10:18:41",
+  "csv": "njn_split.csv"
+}

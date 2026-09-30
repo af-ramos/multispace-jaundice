@@ -1,0 +1,159 @@
+{
+  "resize": 256,
+  "batch": 32,
+  "seed": 42,
+  "mode": "train",
+  "dtype": "float32",
+  "batch_images": [
+    "jaundice (1).jpg",
+    "jaundice (10).jpg",
+    "jaundice (100).jpg",
+    "jaundice (101).jpg",
+    "jaundice (103).jpg",
+    "jaundice (104).jpg",
+    "jaundice (105).jpg",
+    "jaundice (106).jpg",
+    "jaundice (107).jpg",
+    "jaundice (108).jpg",
+    "jaundice (109).jpg",
+    "jaundice (110).jpg",
+    "jaundice (111).jpg",
+    "jaundice (112).jpg",
+    "jaundice (114).jpg",
+    "jaundice (115).jpg",
+    "jaundice (116).jpg",
+    "jaundice (120).jpg",
+    "jaundice (121).jpg",
+    "jaundice (122).jpg",
+    "jaundice (123).jpg",
+    "jaundice (124).jpg",
+    "jaundice (125).jpg",
+    "jaundice (126).jpg",
+    "jaundice (132).jpg",
+    "jaundice (133).jpg",
+    "jaundice (134).jpg",
+    "jaundice (136).jpg",
+    "jaundice (137).jpg",
+    "jaundice (138).jpg",
+    "jaundice (139).jpg",
+    "jaundice (141).jpg"
+  ],
+  "stats": {
+    "LAB": [
+      [
+        0.6208828959407313,
+        0.5180784615481763,
+        0.54628681169927
+      ],
+      [
+        0.19339469952882857,
+        0.0354598956800222,
+        0.04707420629230544
+      ]
+    ],
+    "YCrCb": [
+      [
+        0.5929092851514757,
+        0.5383310655708728,
+        0.4597493072289062
+      ],
+      [
+        0.19519748455171843,
+        0.04921360752805414,
+        0.04609620573912291
+      ]
+    ],
+    "HSV": [
+      [
+        0.13020310253583092,
+        0.259745828054141,
+        0.657977486809533
+      ],
+      [
+        0.14750530358369549,
+        0.1985527566898761,
+        0.1801148384301784
+      ]
+    ],
+    "RGB": [
+      [
+        0.485,
+        0.456,
+        0.406
+      ],
+      [
+        0.229,
+        0.224,
+        0.225
+      ]
+    ]
+  },
+  "params": {
+    "1": {
+      "batchnorm": 6,
+      "gate": 41,
+      "conv1x1": 12,
+      "total": 59
+    },
+    "2": {
+      "batchnorm": 12,
+      "gate": 74,
+      "conv1x1": 21,
+      "total": 107
+    },
+    "3": {
+      "batchnorm": 18,
+      "gate": 107,
+      "conv1x1": 30,
+      "total": 155
+    },
+    "4": {
+      "batchnorm": 24,
+      "gate": 140,
+      "conv1x1": 39,
+      "total": 203
+    }
+  },
+  "parity": {
+    "1": {
+      "max_abs_diff_vs_rgb_arm": 0.0,
+      "mean_abs_diff_vs_rgb_arm": 0.0,
+      "max_abs_diff_vs_normalised_rgb": 1.2283508777618408,
+      "channel_std_of_output": [
+        0.9999921917915344,
+        0.9999947547912598,
+        0.9999958872795105
+      ]
+    },
+    "2": {
+      "max_abs_diff_vs_rgb_arm": 0.002610445022583008,
+      "mean_abs_diff_vs_rgb_arm": 0.00016108543786685914,
+      "max_abs_diff_vs_normalised_rgb": 1.2283296585083008,
+      "channel_std_of_output": [
+        1.0000832080841064,
+        1.0002164840698242,
+        1.0000717639923096
+      ]
+    },
+    "3": {
+      "max_abs_diff_vs_rgb_arm": 0.0026879310607910156,
+      "mean_abs_diff_vs_rgb_arm": 0.00015885767061263323,
+      "max_abs_diff_vs_normalised_rgb": 1.2279150485992432,
+      "channel_std_of_output": [
+        0.9999638795852661,
+        1.0001108646392822,
+        0.9998499751091003
+      ]
+    },
+    "4": {
+      "max_abs_diff_vs_rgb_arm": 0.002068758010864258,
+      "mean_abs_diff_vs_rgb_arm": 0.0002709577383939177,
+      "max_abs_diff_vs_normalised_rgb": 1.2280628681182861,
+      "channel_std_of_output": [
+        1.000027060508728,
+        1.0002506971359253,
+        0.9997923970222473
+      ]
+    }
+  }
+}
