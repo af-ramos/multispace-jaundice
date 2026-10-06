@@ -1,5 +1,7 @@
 # Multi-Space Chromatic Early Fusion for Neonatal Jaundice Classification
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23186155.svg)](https://doi.org/10.5281/zenodo.23186155)
+
 Code and preserved research records for the study *Evaluating Multi-Space Chromatic
 Early Fusion for Neonatal Jaundice Classification* (A. Ramos, B. Bernal, W. Casaca;
 UNESP/IBILCE), prepared for *Health Information Science and Systems*. The manuscript
@@ -11,6 +13,14 @@ The factorial covers 15 colour sets × 15 backbones × 2 datasets (450 configura
 five training seeds each). Full-factorial summaries use preserved aggregate records.
 The illustrative ensembles use a restricted subset with preserved predictions;
 those two forms of evidence must not be interchanged.
+
+## Archive and citation
+
+Each GitHub release is archived on Zenodo. The badge above points to the concept DOI
+[10.5281/zenodo.23186155](https://doi.org/10.5281/zenodo.23186155), which always
+resolves to the latest version; version 1.0.0, the one cited in the manuscript, is
+[10.5281/zenodo.23186156](https://doi.org/10.5281/zenodo.23186156). Citation metadata
+are in [CITATION.cff](CITATION.cff).
 
 ## Contents
 
