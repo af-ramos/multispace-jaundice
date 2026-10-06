@@ -172,7 +172,7 @@ def build_bundle():
 
     blocks = {}
     blocks["H2_melhores_sistemas"] = table(
-        r"Illustrative systems in \textbf{Register A}: five-seed ensembles at threshold $0.5$. Chromatic arms maximise ensemble validation AUC within the available subset (Section~\ref{sec:best_systems}), not the complete factorial. Below each estimate, in small type, is its 95\% cluster-bootstrap percentile confidence interval (10,000 draws, the same groups resampled for both arms); \emph{Difference} rows give the paired difference, multi-space minus RGB, with its paired interval. FN, false negatives. Image-level NeoJaundice rows, without intervals, provide descriptive context for the published benchmark; n.r., not reported. L, Y and H denote LAB, YCrCb and HSV.",
+        r"Illustrative systems in \emph{Register A}: five-seed ensembles at threshold $0.5$. Chromatic arms maximise ensemble validation AUC within the available subset (Section~\ref{sec:best_systems}), not the complete factorial. Below each estimate, in small type, is its 95\% cluster-bootstrap percentile confidence interval (10,000 draws, the same groups resampled for both arms); \emph{Difference} rows give the paired difference, multi-space minus RGB, with its paired interval. FN, false negatives. Image-level NeoJaundice rows, without intervals, provide descriptive context for the published benchmark; n.r., not reported. L, Y and H denote LAB, YCrCb and HSV.",
         "tab:featured_systems", "@{}l l r r r r r r@{}",
         r"\textbf{Backbone} & \textbf{Colour set} & \textbf{Acc. (\%)} & \textbf{Sens. (\%)} & \textbf{Spec. (\%)} & \textbf{FN} & \textbf{Macro-F1} & \textbf{AUC}" + ROW_END,
         featured_rows)
@@ -186,7 +186,7 @@ def build_bundle():
                               interval([min(acc), max(acc)], 2, True), f"{sum(x > 0 for x in acc)}/7",
                               fmt(st.mean(auc), 4, True), f"{sum(x > 0 for x in auc)}/7"]) + ROW_END)
     blocks["T11_por_backbone_medio"] = table(
-        r"Descriptive effects of adding chromatic representations to RGB, in \textbf{Register B}. Each entry averages all seven RGB-preserving sets against the same backbone's RGB baseline. Accuracy differences and their observed ranges use percentage points; Pos. counts strictly positive accuracy differences and Pos.\ AUC strictly positive AUC differences among the seven. Mean AUC differences use the original AUC scale. Ranges are not confidence intervals, and these fixed-factorial summaries do not test significance. Not directly comparable with Register A in Table~\ref{tab:featured_systems}.",
+        r"Descriptive effects of adding chromatic representations to RGB, in \emph{Register B}. Each entry averages all seven RGB-preserving sets against the same backbone's RGB baseline. Accuracy differences and their observed ranges use percentage points; Pos. counts strictly positive accuracy differences and Pos.\ AUC strictly positive AUC differences among the seven. Mean AUC differences use the original AUC scale. Ranges are not confidence intervals, and these fixed-factorial summaries do not test significance. Not directly comparable with Register A in Table~\ref{tab:featured_systems}.",
         "tab:per_backbone_mean", r"@{}l r c r r r@{}",
         r"\textbf{Backbone} & \textbf{Mean $\Delta$Acc.} & \textbf{Acc. range} & \textbf{Pos.} & \textbf{Mean $\Delta$AUC} & \textbf{Pos.\ AUC}" + ROW_END,
         panel_rows)
@@ -201,7 +201,7 @@ def build_bundle():
             anchor_rows.append("  " + " & ".join([ds, fmt(st.mean(d), 2, True), interval([min(d), max(d)], 2, True),
                                 fmt(st.median(d), 2, True), f"{sum(x > 0 for x in d)}/105"]) + ROW_END)
     blocks["T5_rgb_indispensavel"] = table(
-        r"RGB removal and addition in \textbf{Register B}, with all 105 contrasts per dataset included. Means, observed ranges, medians and positive counts are descriptive summaries of the fixed factorial. Ranges are not confidence intervals. Differences are in percentage points.",
+        r"RGB removal and addition in \emph{Register B}, with all 105 contrasts per dataset included. Means, observed ranges, medians and positive counts are descriptive summaries of the fixed factorial. Ranges are not confidence intervals. Differences are in percentage points.",
         "tab:rgb_indispensable", "@{}l r c r r@{}",
         r"\textbf{Dataset} & \textbf{Mean $\Delta$Acc.} & \textbf{Range} & \textbf{Median} & \textbf{Positive}" + ROW_END, anchor_rows)
     for ds in DATASETS:
@@ -217,7 +217,7 @@ def build_bundle():
             auc_rows.append(" & ".join([ds, PRETTY[bb], fmt(cells[(ds, bb, "RGB")].auc, 4),
                             fmt(st.mean(d), 4, True), interval([min(d), max(d)], 4, True), f"{sum(x > 0 for x in d)}/7"]) + ROW_END)
     blocks["T9_familia_cenario"] = table(
-        r"Architecture-family summaries in \textbf{Register B}: 56 CNN and 49 transformer contrasts per operation and dataset. Ranges are observed extrema across cells, not confidence intervals. All quantities describe the evaluated checkpoints. Dataset differences are not controlled contrasts.",
+        r"Architecture-family summaries in \emph{Register B}: 56 CNN and 49 transformer contrasts per operation and dataset. Ranges are observed extrema across cells, not confidence intervals. All quantities describe the evaluated checkpoints. Dataset differences are not controlled contrasts.",
         "tab:family_setting", "@{}l c r r c r c@{}",
         r"& & \textbf{RGB} & \multicolumn{2}{c}{\textbf{Adding to RGB}} & \multicolumn{2}{c}{\textbf{Removing RGB}}" + ROW_END + "\n" +
         r"\textbf{Family} & \textbf{Models} & \textbf{Acc. (\%)} & $\Delta$\textbf{Acc.} & \textbf{Range} & $\Delta$\textbf{Acc.} & \textbf{Range}" + ROW_END, family_rows)
