@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this software or the derived records, please cite them as below."
+title: "Multi-Space Chromatic Early Fusion for Neonatal Jaundice Classification: code and preserved research records"
+type: software
+authors:
+  - family-names: Ramos
+    given-names: Arthur
+    orcid: "https://orcid.org/0000-0001-6508-2463"
+    affiliation: "São Paulo State University (UNESP), Institute of Biosciences, Humanities and Exact Sciences (IBILCE)"
+  - family-names: Bernal
+    given-names: Breno
+    affiliation: "São Paulo State University (UNESP), Institute of Biosciences, Humanities and Exact Sciences (IBILCE)"
+  - family-names: Casaca
+    given-names: Wallace
+    orcid: "https://orcid.org/0000-0002-1073-9939"
+    affiliation: "São Paulo State University (UNESP), Institute of Biosciences, Humanities and Exact Sciences (IBILCE)"
+repository-code: "https://github.com/af-ramos/multispace-jaundice"
+license:
+  - MIT
+  - CC-BY-4.0
+version: "1.0.0"
+date-released: "2026-10-06"
+keywords:
+  - neonatal jaundice
+  - colour space
+  - early fusion
+  - transfer learning
+  - medical image classification
+abstract: >-
+  Code, frozen partitions, campaign records and preserved predictions for a
+  full factorial evaluation of 15 colour sets (subsets of RGB, LAB, YCrCb and
+  HSV) across 15 pre-trained backbones and two public neonatal jaundice
+  datasets (NJN and NeoJaundice), with the analysis that reproduces the
+  reported statistics. Code is released under the MIT licence and the derived
+  records under CC BY 4.0; the source images are not redistributed.

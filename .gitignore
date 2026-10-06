@@ -3,6 +3,7 @@
 !/.gitignore
 !/LICENSE
 !/LICENSE-DATA
+!/CITATION.cff
 !/README.md
 !/requirements.txt
 !/requirements-train.lock
